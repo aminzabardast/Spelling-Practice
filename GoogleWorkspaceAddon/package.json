@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "clasp open & yarn push -w",
-    "push": "clasp push"
+    "push": "clasp push",
+    "clasp-login": "clasp login"
   },
   "devDependencies": {
     "clasp": "^1.0.0"
