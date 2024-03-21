@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "clasp open & yarn push -w",
     "push": "clasp push",
+    "pull": "clasp pull",
     "clasp-login": "clasp login"
   },
   "devDependencies": {
