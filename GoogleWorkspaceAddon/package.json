@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "pnpm run build; pnpm run push; clasp open;",
     "push": "clasp push",
-    "dev:pull": "clasp pull",
+    "pull": "clasp pull",
     "build": "rollup -c",
     "clasp-login": "clasp login"
   },
