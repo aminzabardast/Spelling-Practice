@@ -2,10 +2,18 @@
     "extends": "@tsconfig/node18/tsconfig.json",
     "compilerOptions": {
         "preserveConstEnums": true,
-        "types": ["jsdom"],
+        "types": [
+            "jsdom",
+            "google-apps-script"
+        ],
         "module": "ESNext",
-        "moduleResolution": "Node"
+        "moduleResolution": "Node",
+        "experimentalDecorators": true
     },
-    "include": ["src/**/*"],
-    "exclude": ["**/*.spec.ts"]
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "**/*.spec.ts"
+    ]
 }

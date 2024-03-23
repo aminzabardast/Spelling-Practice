@@ -1,5 +1,8 @@
-import { sum5 } from './utils'
+import { createMenu } from './menus'
 
-const main = () => {
-    console.log(sum5())
+/**
+ * This function runs when 
+ */
+const onOpen = () => {
+  createMenu()
 }
