@@ -6,7 +6,7 @@ export default {
   output: [
     {
       format: "cjs",
-      file: "dist/index.cjs.js",
+      file: "dist/main.js"
     }
   ],
   plugins: [
