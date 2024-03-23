@@ -4,10 +4,10 @@
   "description": "A Google Workspace Addon",
   "main": "dist/main.js",
   "scripts": {
-    "dev": "yarn dev:build -w & yarn dev:push -w & clasp open",
-    "dev:push": "clasp push",
+    "dev": "yarn build; yarn push; clasp open;",
+    "push": "clasp push",
     "dev:pull": "clasp pull",
-    "dev:build": "rollup -c",
+    "build": "rollup -c",
     "clasp-login": "clasp login"
   },
   "dependencies": {
@@ -26,7 +26,8 @@
     "@types/lodash.sum": "^4.0.9",
     "@types/node": "^20.11.30",
     "@types/jsdom": "^21.1.6",
-    "@types/google-apps-script": "^1.0.82"
+    "@types/google-apps-script": "^1.0.82",
+    "rollup-plugin-copy": "^3.5.0"
   },
   "repository": {
     "type": "git",
