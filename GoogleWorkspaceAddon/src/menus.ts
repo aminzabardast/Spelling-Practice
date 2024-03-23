@@ -1,19 +1,19 @@
 import { sum5 } from './utils'
 
 const createMenu = () => {
-SpreadsheetApp.getUi().createMenu("⚙️ Admin Settings")
+  SpreadsheetApp.getUi().createMenu("⚙️ Admin Settings")
     .addItem("Setting A", "settingA")
     .addItem("Setting B", "settingB")
-    .addToUi();
+    .addToUi()
 }
 
 const settingA = () => {
-    SpreadsheetApp.getActive().toast(`Sum is ${sum5()}`);
+  SpreadsheetApp.getActive().toast(`Sum is ${sum5()}`)
 }
 
 const settingB = () => {
-    showPicker()
-    SpreadsheetApp.getActive().toast("You selected Setting B.");
+  showPicker()
+  SpreadsheetApp.getActive().toast("You selected Setting B.")
 }
 
 /**
@@ -21,18 +21,17 @@ const settingB = () => {
  * JavaScript code for the Google Picker API.
  */
 function showPicker() {
-    try {
-      const html = HtmlService.createHtmlOutputFromFile('templates/dialog.html')
-          .setWidth(600)
-          .setHeight(425)
-          .setSandboxMode(HtmlService.SandboxMode.IFRAME);
-      SpreadsheetApp.getUi().showModalDialog(html, 'This is the TITLE!');
-    } catch (e: unknown) {
-      if (e instanceof ErrorEvent) {
-        console.log('Failed with error: %s', e.error)
-      }
+  try {
+    const html = HtmlService.createHtmlOutputFromFile('templates/dialog.html')
+      .setWidth(600)
+      .setHeight(425)
+      .setSandboxMode(HtmlService.SandboxMode.IFRAME);
+    SpreadsheetApp.getUi().showModalDialog(html, 'This is the TITLE!')
+  } catch (e: unknown) {
+    if (e instanceof ErrorEvent) {
+      console.log('Failed with error: %s', e.error)
     }
   }
-  
+}
 
 export { createMenu, showPicker }
