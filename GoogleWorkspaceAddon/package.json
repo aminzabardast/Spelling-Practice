@@ -4,7 +4,7 @@
   "description": "A Google Workspace Addon",
   "main": "dist/main.js",
   "scripts": {
-    "dev": "yarn build; yarn push; clasp open;",
+    "dev": "pnpm run build; pnpm run push; clasp open;",
     "push": "clasp push",
     "dev:pull": "clasp pull",
     "build": "rollup -c",
