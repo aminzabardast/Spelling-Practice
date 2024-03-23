@@ -2,7 +2,9 @@
     "extends": "@tsconfig/node18/tsconfig.json",
     "compilerOptions": {
         "preserveConstEnums": true,
-        "types": ["jsdom"]
+        "types": ["jsdom"],
+        "module": "ESNext",
+        "moduleResolution": "Node"
     },
     "include": ["src/**/*"],
     "exclude": ["**/*.spec.ts"]
