@@ -1,9 +1,10 @@
 import { sum5 } from './utils'
 
 const createMenu = () => {
-  SpreadsheetApp.getUi().createMenu("⚙️ Admin Settings")
-    .addItem("Setting A", "settingA")
-    .addItem("Setting B", "settingB")
+  SpreadsheetApp.getUi()
+    .createMenu('⚙️ Admin Settings')
+    .addItem('Setting A', 'settingA')
+    .addItem('Setting B', 'settingB')
     .addToUi()
 }
 
@@ -13,7 +14,7 @@ const settingA = () => {
 
 const settingB = () => {
   showPicker()
-  SpreadsheetApp.getActive().toast("You selected Setting B.")
+  SpreadsheetApp.getActive().toast('You selected Setting B.')
 }
 
 /**
@@ -25,7 +26,7 @@ function showPicker() {
     const html = HtmlService.createHtmlOutputFromFile('templates/dialog.html')
       .setWidth(600)
       .setHeight(425)
-      .setSandboxMode(HtmlService.SandboxMode.IFRAME);
+      .setSandboxMode(HtmlService.SandboxMode.IFRAME)
     SpreadsheetApp.getUi().showModalDialog(html, 'This is the TITLE!')
   } catch (e: unknown) {
     if (e instanceof ErrorEvent) {
