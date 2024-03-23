@@ -249,3 +249,6 @@ dist
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/node,visualstudiocode,jetbrains+all
+
+dist/*
+!dist/appsscript.json
