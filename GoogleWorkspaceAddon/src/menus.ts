@@ -25,7 +25,7 @@ function showPicker() {
   try {
     const html = HtmlService.createHtmlOutputFromFile('templates/dialog.html')
       .setWidth(600)
-      .setHeight(425)
+      .setHeight(600)
       .setSandboxMode(HtmlService.SandboxMode.IFRAME)
     SpreadsheetApp.getUi().showModalDialog(html, 'This is the TITLE!')
   } catch (e: unknown) {
