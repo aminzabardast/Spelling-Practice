@@ -2,7 +2,7 @@ import { createMenu } from './menus'
 import { sum5 } from './utils'
 
 /**
- * This function runs when
+ * This function runs when sheet is opened
  */
 const onOpen = () => {
   createMenu()
