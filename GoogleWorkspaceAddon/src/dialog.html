@@ -8,10 +8,28 @@
         padding: 10px;
       }
     </style>
+    <base target="_top">
+    <script>
+      // Run upon load even without HTML being there
+      google.script.run.doSomething();
+    </script>
   </head>
   <body>
     <div>
       <p>This is the dialog's HTML</p>
+
+      <button onclick="google.script.run.doSomething()">Insert</button>
+
+      Sum? <div id="sum" style="padding: 10px; background-color: red;"></div>
+
+      <script>
+        // This runs after the HTML is present
+        let modify = (val) => {
+          let el = document.getElementById('sum')
+          el.innerHTML = `Sum is: ${val}`
+        }
+        google.script.run.withSuccessHandler(modify).returnSomething();
+      </script>
     </div>
   </body>
 </html>
