@@ -1,0 +1,31 @@
+<script type="importmap">
+{
+    "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+    }
+}
+</script>
+
+<div id="app"></div>
+
+<script type="module">
+import { createApp, ref } from 'vue'
+
+const Comp1 = {
+    setup() {
+        const message = ref('Hello Vue!')
+        const count = ref(0)
+        const countUp = () => {
+            count.value += 1
+        }
+        return {
+            message,
+            count,
+            countUp
+        }
+    },
+    template: `<div>count is {{ count }} <button @click="countUp">Add</button></div>`
+}
+
+createApp(Comp1).mount('#app')
+</script>

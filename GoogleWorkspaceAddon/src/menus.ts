@@ -44,7 +44,7 @@ const openModelessDialog = () => {
 
 const openSideBar = () => {
   try {
-    const html = HtmlService.createHtmlOutputFromFile('templates/dialog.html')
+    const html = HtmlService.createHtmlOutputFromFile('templates/vue_dialog.html')
       .setWidth(600)
       .setHeight(600)
       .setSandboxMode(HtmlService.SandboxMode.IFRAME)
