@@ -3,25 +3,18 @@ import { sum5 } from './utils'
 const createMenu = () => {
   SpreadsheetApp.getUi()
     .createMenu('⚙️ Admin Settings')
-    .addItem('Setting A', 'settingA')
-    .addItem('Setting B', 'settingB')
+    .addItem('Open Toast Menu', 'openToastExample')
+    .addItem('Open Modal Dialog', 'openModalDialog')
+    .addItem('Open Modeless Dialog', 'openModelessDialog')
+    .addItem('Open Side Bar', 'openSideBar')
     .addToUi()
 }
 
-const settingA = () => {
+const openToastExample = () => {
   SpreadsheetApp.getActive().toast(`Sum is ${sum5()}`)
 }
 
-const settingB = () => {
-  showPicker()
-  SpreadsheetApp.getActive().toast('You selected Setting B.')
-}
-
-/**
- * Displays an HTML-service dialog in Google Sheets that contains client-side
- * JavaScript code for the Google Picker API.
- */
-function showPicker() {
+const openModalDialog = () => {
   try {
     const html = HtmlService.createHtmlOutputFromFile('templates/dialog.html')
       .setWidth(600)
@@ -35,4 +28,32 @@ function showPicker() {
   }
 }
 
-export { createMenu, showPicker }
+const openModelessDialog = () => {
+  try {
+    const html = HtmlService.createHtmlOutputFromFile('templates/dialog.html')
+      .setWidth(600)
+      .setHeight(600)
+      .setSandboxMode(HtmlService.SandboxMode.IFRAME)
+    SpreadsheetApp.getUi().showModelessDialog(html, 'This is the TITLE!')
+  } catch (e: unknown) {
+    if (e instanceof ErrorEvent) {
+      console.log('Failed with error: %s', e.error)
+    }
+  }
+}
+
+const openSideBar = () => {
+  try {
+    const html = HtmlService.createHtmlOutputFromFile('templates/dialog.html')
+      .setWidth(600)
+      .setHeight(600)
+      .setSandboxMode(HtmlService.SandboxMode.IFRAME)
+    SpreadsheetApp.getUi().showSidebar(html)
+  } catch (e: unknown) {
+    if (e instanceof ErrorEvent) {
+      console.log('Failed with error: %s', e.error)
+    }
+  }
+}
+
+export { createMenu }
