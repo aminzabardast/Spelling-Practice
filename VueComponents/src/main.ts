@@ -1,6 +1,3 @@
-import './assets/main.css'
+import MyButton from '@/components/MyButton/MyButton.vue'
 
-import { createApp } from 'vue'
-import App from './App.vue'
-
-createApp(App).mount('#app')
+export { MyButton }
