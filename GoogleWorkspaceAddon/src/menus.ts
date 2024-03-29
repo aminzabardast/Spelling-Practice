@@ -16,7 +16,7 @@ const openToastExample = () => {
 
 const openModalDialog = () => {
   try {
-    const html = HtmlService.createHtmlOutputFromFile('templates/dialog.html')
+    const html = HtmlService.createHtmlOutputFromFile('components/dialog.html')
       .setWidth(600)
       .setHeight(600)
       .setSandboxMode(HtmlService.SandboxMode.IFRAME)
@@ -30,7 +30,7 @@ const openModalDialog = () => {
 
 const openModelessDialog = () => {
   try {
-    const html = HtmlService.createHtmlOutputFromFile('templates/dialog.html')
+    const html = HtmlService.createHtmlOutputFromFile('components/dialog.html')
       .setWidth(600)
       .setHeight(600)
       .setSandboxMode(HtmlService.SandboxMode.IFRAME)
@@ -44,7 +44,7 @@ const openModelessDialog = () => {
 
 const openSideBar = () => {
   try {
-    const html = HtmlService.createHtmlOutputFromFile('templates/vue_dialog.html')
+    const html = HtmlService.createHtmlOutputFromFile('components/vue_dialog.html')
       .setWidth(600)
       .setHeight(600)
       .setSandboxMode(HtmlService.SandboxMode.IFRAME)

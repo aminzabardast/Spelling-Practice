@@ -17,7 +17,7 @@ export default {
     typescript(),
     copy({
       targets: [
-        { src: 'src/**/*.html', dest: 'dist/templates/' }
+        { src: 'src/components/*.html', dest: 'dist/components/' }
       ]
     })
   ],
