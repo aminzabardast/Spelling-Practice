@@ -1,7 +1,8 @@
 <script type="importmap">
 {
     "imports": {
-        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
+        "components": "https://aminzabardast.github.io/Spelling-Practice/VueComponents/dist/components.js"
     }
 }
 </script>
@@ -10,6 +11,7 @@
 
 <script type="module">
 import { createApp, ref } from 'vue'
+import { MyButton } from 'components'
 
 const Comp1 = {
     setup() {
@@ -24,7 +26,7 @@ const Comp1 = {
             countUp
         }
     },
-    template: `<div>count is {{ count }} <button @click="countUp">Add</button></div>`
+    template: `<div>count is {{ count }} <button @click="countUp">Add</button></div><div><MyButton /></div>`
 }
 
 createApp(Comp1).mount('#app')
