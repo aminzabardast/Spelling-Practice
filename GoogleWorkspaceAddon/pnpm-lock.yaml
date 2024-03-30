@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  lodash.isnull:
+    specifier: ^3.0.0
+    version: 3.0.0
+  lodash.isundefined:
+    specifier: ^3.0.1
+    version: 3.0.1
   lodash.sum:
     specifier: ^4.0.2
     version: 4.0.2
@@ -28,6 +34,12 @@ devDependencies:
   '@types/jsdom':
     specifier: ^21.1.6
     version: 21.1.6
+  '@types/lodash.isnull':
+    specifier: ^3.0.9
+    version: 3.0.9
+  '@types/lodash.isundefined':
+    specifier: ^3.0.9
+    version: 3.0.9
   '@types/lodash.sum':
     specifier: ^4.0.9
     version: 4.0.9
@@ -289,6 +301,18 @@ packages:
       '@types/node': 20.11.30
       '@types/tough-cookie': 4.0.5
       parse5: 7.1.2
+    dev: true
+
+  /@types/lodash.isnull@3.0.9:
+    resolution: {integrity: sha512-5ao4GbNsMve7TGj/EKKBDowlRQCcs//ro/KiEHT9lDARyCLgkyUfYWQRbLRKHyKB/zFuwz4f8mx83lejM2mu2w==}
+    dependencies:
+      '@types/lodash': 4.17.0
+    dev: true
+
+  /@types/lodash.isundefined@3.0.9:
+    resolution: {integrity: sha512-nF+msH20xJzIJyZMBfArDnYxibF/Kt80y9naFYULzZ2yc4eBDAyxVDaf8DXyDWefHDh9CAaUoFp6XhMn38a26g==}
+    dependencies:
+      '@types/lodash': 4.17.0
     dev: true
 
   /@types/lodash.sum@4.0.9:
@@ -560,6 +584,14 @@ packages:
     optionalDependencies:
       graceful-fs: 4.2.11
     dev: true
+
+  /lodash.isnull@3.0.0:
+    resolution: {integrity: sha512-9D6/H5PSHfhyPwZerI9J5hKBaXayxhVy7gt6OBAsXv8XBm+i107KqG99AoeIJObC6uCnVwp1LM7Ww1DKYYIKog==}
+    dev: false
+
+  /lodash.isundefined@3.0.1:
+    resolution: {integrity: sha512-MXB1is3s899/cD8jheYYE2V9qTHwKvt+npCwpD+1Sxm3Q3cECXCiYHjeHWXNwr6Q0SOBPrYUDxendrO6goVTEA==}
+    dev: false
 
   /lodash.sum@4.0.2:
     resolution: {integrity: sha512-1GcLFsMpU0K7uGPjo5FePq0fNlL3sSTZtSWwQUxr9VL8T3xeJiprwbfjDptTUPtkB8cUBpAnMtvQpju5XXaBeA==}
