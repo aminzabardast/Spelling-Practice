@@ -1,11 +1,10 @@
 import { createMenu } from './menus'
-import { sum5, checkSetup } from './utils'
+import { sum5 } from './utils'
 
 /**
  * This function runs when sheet is opened
  */
 const onOpen = () => {
-  const isSetup = checkSetup()
   createMenu()
 }
 
