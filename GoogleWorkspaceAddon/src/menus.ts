@@ -2,11 +2,12 @@ import { sum5 } from './utils'
 
 const createMenu = () => {
   SpreadsheetApp.getUi()
-    .createMenu('⚙️ Admin Settings')
+    .createMenu('Spelling Practice')
     .addItem('Open Toast Menu', 'openToastExample')
     .addItem('Open Modal Dialog', 'openModalDialog')
     .addItem('Open Modeless Dialog', 'openModelessDialog')
     .addItem('Open Side Bar', 'openSideBar')
+    .addItem('⚙️ Setup', 'openSetupWizard')
     .addToUi()
 }
 
@@ -49,6 +50,20 @@ const openSideBar = () => {
       .setHeight(600)
       .setSandboxMode(HtmlService.SandboxMode.IFRAME)
     SpreadsheetApp.getUi().showSidebar(html)
+  } catch (e: unknown) {
+    if (e instanceof ErrorEvent) {
+      console.log('Failed with error: %s', e.error)
+    }
+  }
+}
+
+const openSetupWizard = () => {
+  try {
+    const html = HtmlService.createHtmlOutputFromFile('components/setup_wizard.html')
+      .setWidth(600)
+      .setHeight(600)
+      .setSandboxMode(HtmlService.SandboxMode.IFRAME)
+    SpreadsheetApp.getUi().showModalDialog(html, 'Setup Wizard')
   } catch (e: unknown) {
     if (e instanceof ErrorEvent) {
       console.log('Failed with error: %s', e.error)
