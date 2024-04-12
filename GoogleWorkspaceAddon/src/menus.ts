@@ -2,7 +2,7 @@ import { sum5 } from './utils'
 
 const createMenu = () => {
   SpreadsheetApp.getUi()
-    .createMenu('Spelling Practice')
+    .createMenu('⌨️ Spelling Practice')
     .addItem('Open Toast Menu', 'openToastExample')
     .addItem('Open Modal Dialog', 'openModalDialog')
     .addItem('Open Modeless Dialog', 'openModelessDialog')
