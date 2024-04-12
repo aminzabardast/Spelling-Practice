@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { type GoogleClass } from '@/GoogleTypes'
 
 defineProps<{
   msg: string
 }>()
+
+declare global {
+  var google: GoogleClass
+}
 
 const isLoading = ref(false)
 
@@ -13,7 +18,6 @@ const doSomethingSuccess = () => {
 
 const doSomething = () => {
   isLoading.value = true
-  // @ts-ignore TODO: I need to somehow tell TypeScript not to take this as an error. It should not be ignored and should have Type Definition.
   google.script.run.withSuccessHandler(doSomethingSuccess).doSomething()
 }
 </script>
