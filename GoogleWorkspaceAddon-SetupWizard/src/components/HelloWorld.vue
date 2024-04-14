@@ -18,7 +18,12 @@ const doSomethingSuccess = () => {
 
 const doSomething = () => {
   isLoading.value = true
-  google.script.run.withSuccessHandler(doSomethingSuccess).doSomething()
+  if (import.meta.env.PROD) {
+    google.script.run.withSuccessHandler(doSomethingSuccess).doSomething()
+  } else {
+    console.log('doSomething')
+    isLoading.value = false
+  }
 }
 </script>
 
@@ -27,10 +32,8 @@ const doSomething = () => {
     <h1 class="green">{{ msg }}</h1>
     <h3 v-if="isLoading">Loading ...</h3>
     <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a> +
-      <a @click="doSomething()">Google Sheets Test Function</a>.
+      This is a test SPA.
+      <a @click="doSomething()">Add One Row</a>.
     </h3>
   </div>
 </template>
@@ -52,14 +55,11 @@ h3 {
   text-align: center;
 }
 
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
-  }
-}
-
 a {
   cursor: pointer;
+  text-decoration: underline;
+}
+a:hover {
+  color: aqua;
 }
 </style>
