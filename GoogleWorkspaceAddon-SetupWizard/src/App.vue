@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Body from '@/components/MainBody.vue'
-import Page, {type SlideButton} from '@/components/PageSlide.vue'
+import Page, {type PageActionButton} from '@/components/PageSlide.vue'
 import { LoremIpsum } from 'lorem-ipsum' // FIXME: Only While Dev
 import Loading from '@/components/LoadingOverlay.vue'
 import debounce from 'lodash.debounce'
@@ -21,7 +21,7 @@ const isLoading = ref(false)
 const activePage = ref(1)
 const body: Ref<HTMLElement | undefined> = ref()
 
-const pageOneButtons: SlideButton[] = [
+const pageOneButtons: PageActionButton[] = [
   {
     text: 'Some Action',
     action: () => {
@@ -36,7 +36,7 @@ const pageOneButtons: SlideButton[] = [
     }
   }
 ]
-const pageTwoButtons: SlideButton[] = [
+const pageTwoButtons: PageActionButton[] = [
   {
     text: 'Other Action',
     action: () => {

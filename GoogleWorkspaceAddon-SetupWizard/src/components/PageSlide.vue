@@ -26,13 +26,13 @@ declare global {
   var google: GoogleClass
 }
 
-export type SlideButton = {
+export type PageActionButton = {
     text: string
     action: Function
 }
 
 export interface Props {
-    buttons?: SlideButton[]
+    buttons?: PageActionButton[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
