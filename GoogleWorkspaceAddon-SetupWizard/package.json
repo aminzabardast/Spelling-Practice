@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "vue": "^3.4.21",
-    "lodash.debounce": "^4.0.8"
+    "lodash.debounce": "^4.0.8",
+    "lodash.isundefined": "^3.0.1"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
@@ -33,6 +34,7 @@
     "vite-plugin-singlefile": "^2.0.1",
     "vue-tsc": "^2.0.11",
     "@types/lodash.debounce": "^4.0.9",
+    "@types/lodash.isundefined": "^3.0.9",
     "lorem-ipsum": "^2.0.8"
   }
 }

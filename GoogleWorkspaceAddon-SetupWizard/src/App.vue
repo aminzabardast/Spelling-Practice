@@ -1,87 +1,93 @@
 <script setup lang="ts">
 import Body from '@/components/MainBody.vue'
-import Page, {type SlideButton} from '@/components/PageSlide.vue'
-import { LoremIpsum } from 'lorem-ipsum' // FIXME: Only While Dev
+import Page from '@/components/PageSlide.vue'
 import Loading from '@/components/LoadingOverlay.vue'
 import debounce from 'lodash.debounce'
+import isUndefined from 'lodash.isundefined'
 import { ref, type Ref } from 'vue'
 import { type GoogleClass } from '@/GoogleTypes'
-
-// FIXME: Only While Dev
-const lorem = new LoremIpsum({}, 'html');
-const PageOneContext = lorem.generateParagraphs(2)
-const PageTwoContext = lorem.generateParagraphs(2)
-//
+import Button from '@/components/BlockButton.vue'
 
 declare global {
   var google: GoogleClass
 }
 
 const isLoading = ref(false)
-const activePage = ref(1)
+const activePage = ref('home')
 const body: Ref<HTMLElement | undefined> = ref()
+const isMetaChecked = ref(false)
+const doesMetaExist = ref(false)
 
-const pageOneButtons: SlideButton[] = [
-  {
-    text: 'Some Action',
-    action: () => {
-      addRow()
-    }
-  },
-  {
-    text: 'Next Page',
-    action: () => {
-      activePage.value = 2
-      window.scrollTo(0, 0)
-    }
-  }
-]
-const pageTwoButtons: SlideButton[] = [
-  {
-    text: 'Other Action',
-    action: () => {
-      addRow()
-    }
-  },
-  {
-    text: 'Previous Page',
-    action: () => {
-      activePage.value = 1
-      window.scrollTo(0, 0)
-    }
-  }
-]
+type page = 'home' | 'meta'
 
-const createDisableLoadingDebouncer = (seconds: number) => {
+const createDisableLoadingDebouncer = (seconds: number, callBack: Function | undefined) => {
     return debounce(() => {
         isLoading.value = false
+        if (!isUndefined(callBack)) {
+          callBack()
+        }
     }, seconds * 1000)
 }
-const disableLoadingAfterOneSeconds = createDisableLoadingDebouncer(1)
-const addRow = () => {
-    isLoading.value = true
-    if (import.meta.env.PROD) {
-        google.script.run.withSuccessHandler(
-            () => {
-                isLoading.value = false
-            }
-        ).doSomething()
-    } else {
-        console.log('DEV LOG: `google.script.run.doSomething()` is executed.')
-        disableLoadingAfterOneSeconds()
-    }
+
+const goToPage = (page: page) => {
+  activePage.value = page
+  window.scrollTo(0, 0)
+}
+
+const mockCheckMeta = createDisableLoadingDebouncer(1, () => {
+  console.log('DEV LOG: Meta Checked')
+  isLoading.value = false
+  isMetaChecked.value = true
+})
+const checkMeta = () => {
+  isLoading.value = true
+  if (import.meta.env.PROD) {
+      // TODO: Check Meta Here
+  } else {
+    mockCheckMeta()
+  }
+}
+
+const mockCreateMeta = createDisableLoadingDebouncer(1, () => {
+  console.log('DEV LOG: Meta Created')
+  isLoading.value = false
+  doesMetaExist.value = true
+})
+const createMeta = () => {
+  isLoading.value = true
+  if (import.meta.env.PROD) {
+      // TODO: Create Meta Here
+  } else {
+    mockCreateMeta()
+  }
 }
 </script>
 
 <template>
   <Body ref="body">
-    <Page :buttons="pageOneButtons" v-if="activePage === 1">
-      <h1>Page 1</h1>
-      <div v-html="PageOneContext"></div>
+    <Page v-if="activePage === 'home'">
+      <template #title>What is this Wizard?</template>
+      <p>This wizard is here to help you setup the Addon. The steps are:</p>
+      <ol>
+        <li>Make sure that Metadata sheet exists.</li>
+        <li>Populate the Metadata sheet with:</li>
+        <ol>
+          <li>Words Column.</li>
+          <li>Tracking Information: Number of Correct and Incorrect Evaluation.</li>
+        </ol>
+      </ol>
+      <template #footer>
+        <Button>Some Action</Button>
+        <Button @click="goToPage('meta')">Meta Data Sheet</Button>
+      </template>
     </Page>
-    <Page :buttons="pageTwoButtons" v-if="activePage === 2">
-      <h1>Page 2</h1>
-      <div v-html="PageTwoContext"></div>
+    <Page v-if="activePage === 'meta'">
+      <template #title>Meta Data Sheet</template>
+      <template #footer>
+        <Button @click="checkMeta()" :disabled="isMetaChecked">Check Meta</Button>
+        <Button @click="createMeta()" :disabled="!isMetaChecked || doesMetaExist">Create Meta</Button>
+        <Button @click="goToPage('home')">Back to Home</Button>
+      </template>
     </Page>
   </Body>
   <Loading v-if="isLoading" :width="60"/>
