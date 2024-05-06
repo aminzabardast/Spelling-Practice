@@ -80,7 +80,7 @@ const createMeta = () => {
 <template>
   <Body ref="body">
     <Page v-if="activePage === 'home'">
-      <template #title>What is this Wizard?</template>
+      <template #title>What is this wizard?</template>
       <p>This wizard is here to help you setup the Addon. The steps are:</p>
       <ol>
         <li>Make sure that Metadata sheet exists.</li>
