@@ -43,6 +43,13 @@ const checkMeta = () => {
   isLoading.value = true
   if (import.meta.env.PROD) {
       // TODO: Check Meta Here
+      // FIXME: Following is temperory
+      google.script.run.withSuccessHandler(
+        () => {
+          isLoading.value = false
+          isMetaChecked.value = true
+        }
+      ).doSomething()
   } else {
     mockCheckMeta()
   }
@@ -57,6 +64,13 @@ const createMeta = () => {
   isLoading.value = true
   if (import.meta.env.PROD) {
       // TODO: Create Meta Here
+      // FIXME: Following is temperory
+      google.script.run.withSuccessHandler(
+        () => {
+          isLoading.value = false
+          doesMetaExist.value = true
+        }
+      ).doSomething()
   } else {
     mockCreateMeta()
   }
@@ -66,7 +80,7 @@ const createMeta = () => {
 <template>
   <Body ref="body">
     <Page v-if="activePage === 'home'">
-      <template #title>What is this Wizard?</template>
+      <template #title>What is this wizard?</template>
       <p>This wizard is here to help you setup the Addon. The steps are:</p>
       <ol>
         <li>Make sure that Metadata sheet exists.</li>
