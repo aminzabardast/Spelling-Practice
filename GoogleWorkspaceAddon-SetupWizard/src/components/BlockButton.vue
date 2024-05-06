@@ -1,8 +1,16 @@
 <template>
-    <button @click="onClick"><slot></slot></button>
+    <button @click="onClick" :disabled="props.disabled"><slot></slot></button>
 </template>
 
 <script setup lang="ts">
+export interface Props {
+    disabled?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+    disabled: false
+})
+
 const emit = defineEmits<{
   (e: 'click'): void
 }>()
