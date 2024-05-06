@@ -43,6 +43,13 @@ const checkMeta = () => {
   isLoading.value = true
   if (import.meta.env.PROD) {
       // TODO: Check Meta Here
+      // FIXME: Following is temperory
+      google.script.run.withSuccessHandler(
+        () => {
+          isLoading.value = false
+          isMetaChecked.value = true
+        }
+      ).doSomething()
   } else {
     mockCheckMeta()
   }
@@ -57,6 +64,13 @@ const createMeta = () => {
   isLoading.value = true
   if (import.meta.env.PROD) {
       // TODO: Create Meta Here
+      // FIXME: Following is temperory
+      google.script.run.withSuccessHandler(
+        () => {
+          isLoading.value = false
+          doesMetaExist.value = true
+        }
+      ).doSomething()
   } else {
     mockCreateMeta()
   }
