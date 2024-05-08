@@ -1,4 +1,13 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import {
+    BlockButton,
+    LoadingOverlay,
+    MainBody,
+    PageSlide
+} from './components/index'
 
-createApp(App).mount('#app')
+export {
+    BlockButton,
+    LoadingOverlay,
+    MainBody,
+    PageSlide
+}
