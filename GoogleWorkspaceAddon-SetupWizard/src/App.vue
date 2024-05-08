@@ -1,12 +1,9 @@
 <script setup lang="ts">
-import Body from '@/components/MainBody.vue'
-import Page from '@/components/PageSlide.vue'
-import Loading from '@/components/LoadingOverlay.vue'
 import debounce from 'lodash.debounce'
 import isUndefined from 'lodash.isundefined'
 import { ref, type Ref } from 'vue'
 import { type GoogleClass } from '@/GoogleTypes'
-import Button from '@/components/BlockButton.vue'
+import { BlockButton as Button, MainBody as Body, PageSlide as Page, LoadingOverlay as Loading } from 'component-library'
 
 declare global {
   var google: GoogleClass
