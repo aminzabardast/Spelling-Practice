@@ -1,10 +1,12 @@
 <script setup lang="ts">
-// TODO: These component should be shared between different apps. Find a solution.
-import Body from '@/components/MainBody.vue'
-import Loading from '@/components/LoadingOverlay.vue'
 import { ref, type Ref } from 'vue'
 import { type GoogleClass } from '@/GoogleTypes'
 import debounce from 'lodash.debounce'
+import {
+  MainBody as Body,
+  LoadingOverlay as Loading,
+  BlockButton as Button
+} from 'component-library'
 
 declare global {
   var google: GoogleClass
@@ -25,7 +27,7 @@ const loadForTwoSeconds = () => {
 <template>
   <Body ref="body">
     <p>Example.</p>
-    <button @click="loadForTwoSeconds()">Initiate Loading</button>
+    <Button @click="loadForTwoSeconds()">Initiate Loading</Button>
   </Body>
   <Loading v-if="isLoading" :width="60"/>
 </template>

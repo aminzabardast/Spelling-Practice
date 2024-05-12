@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      component-library:
+        specifier: ../GoogleWorkspaceAddon-VueComponentsLibrary/googleworkspaceaddon-vuecomponentslibrary-0.0.0.tgz
+        version: googleworkspaceaddon-vuecomponentslibrary@file:../GoogleWorkspaceAddon-VueComponentsLibrary/googleworkspaceaddon-vuecomponentslibrary-0.0.0.tgz(typescript@5.4.5)
       lodash.debounce:
         specifier: ^4.0.8
         version: 4.0.8
@@ -765,6 +768,10 @@ packages:
   globby@11.1.0:
     resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}
     engines: {node: '>=10'}
+
+  googleworkspaceaddon-vuecomponentslibrary@file:../GoogleWorkspaceAddon-VueComponentsLibrary/googleworkspaceaddon-vuecomponentslibrary-0.0.0.tgz:
+    resolution: {integrity: sha512-0/3xn2oSrZ/uslaDimGcjfX5SvoUx0VfL2KeUpkuUqOahO+6p4dEeu57XJ5suQ+uqhdRCZbIu4O0PQ+fj4XWIQ==, tarball: file:../GoogleWorkspaceAddon-VueComponentsLibrary/googleworkspaceaddon-vuecomponentslibrary-0.0.0.tgz}
+    version: 0.0.0
 
   graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
@@ -1863,6 +1870,14 @@ snapshots:
       ignore: 5.3.1
       merge2: 1.4.1
       slash: 3.0.0
+
+  googleworkspaceaddon-vuecomponentslibrary@file:../GoogleWorkspaceAddon-VueComponentsLibrary/googleworkspaceaddon-vuecomponentslibrary-0.0.0.tgz(typescript@5.4.5):
+    dependencies:
+      lodash.debounce: 4.0.8
+      lodash.isundefined: 3.0.1
+      vue: 3.4.21(typescript@5.4.5)
+    transitivePeerDependencies:
+      - typescript
 
   graphemer@1.4.0: {}
 
